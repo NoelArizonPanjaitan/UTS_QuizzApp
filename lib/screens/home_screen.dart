@@ -48,21 +48,33 @@ class HomeScreen extends StatelessWidget {
                 children: <Widget>[
                   LanguageCard(
                     title: 'C++',
-                    logo: const Icon(Icons.code, size: 40, color: Color(0xFF0077B6)),
+                    logo: Image.asset(
+                      'assets/images/cplusplus_logo.png',
+                      height: 40,
+                      width: 40,
+                    ),
                     onTap: () => _startQuiz(context, 'C++'),
                   ),
                   const SizedBox(height: 15),
 
                   LanguageCard(
                     title: 'Java',
-                    logo: const Icon(Icons.coffee, size: 40, color: Color(0xFFD32F2F)),
+                    logo: Image.asset(
+                      'assets/images/java_logo.png',
+                      height: 40,
+                      width: 40,
+                    ),
                     onTap: () => _startQuiz(context, 'Java'),
                   ),
                   const SizedBox(height: 15),
 
                   LanguageCard(
                     title: 'Python',
-                    logo: const Icon(Icons.api, size: 40, color: Color(0xFFFFC107)),
+                    logo: Image.asset(
+                      'assets/images/python_logo.png',
+                      height: 40,
+                      width: 40,
+                    ),
                     onTap: () => _startQuiz(context, 'Python'),
                   ),
                 ],

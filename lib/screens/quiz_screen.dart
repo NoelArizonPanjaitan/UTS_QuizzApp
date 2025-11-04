@@ -80,16 +80,25 @@ class _QuizScreenState extends State<QuizScreen> {
   }
 
   Widget _getLanguageLogo() {
+    String imagePath;
     switch (widget.language) {
       case 'C++':
-        return const Icon(Icons.code, size: 60, color: Color(0xFF0077B6));
+        imagePath = 'assets/images/cplusplus_logo.png';
+        break;
       case 'Java':
-        return const Icon(Icons.coffee, size: 60, color: Color(0xFFD32F2F));
+        imagePath = 'assets/images/java_logo.png';
+        break;
       case 'Python':
-        return const Icon(Icons.api, size: 60, color: Color(0xFFFFC107));
+        imagePath = 'assets/images/python_logo.png';
+        break;
       default:
         return const Icon(Icons.quiz, size: 60, color: Colors.white);
     }
+    return Image.asset(
+      imagePath,
+      height: 60,
+      width: 60,
+    );
   }
 
   BorderSide _getAnswerBorder(String answer) {
