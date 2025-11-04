@@ -37,7 +37,7 @@ class LanguageCard extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF4A148C), // Warna teks ungu tua
+                  color: Color(0xFF4A148C),
                 ),
               ),
               const Spacer(),
