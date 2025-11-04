@@ -14,18 +14,15 @@ class LanguageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return InkWell(
       onTap: onTap,
       child: Card(
-        elevation: 5,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0),
-        ),
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 25.0),
           child: Row(
             children: <Widget>[
-              // Logo/Ikon Bahasa
               SizedBox(
                 width: 60,
                 height: 60,
@@ -33,19 +30,20 @@ class LanguageCard extends StatelessWidget {
               ),
               const SizedBox(width: 20),
 
-              // Nama Bahasa
               Text(
                 title,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF4A148C),
+                  color: theme.brightness == Brightness.light
+                      ? const Color(0xFF4A148C)
+                      : theme.textTheme.titleLarge?.color,
                 ),
               ),
               const Spacer(),
 
               // Ikon Panah
-              const Icon(Icons.arrow_forward_ios, size: 20, color: Color(0xFF9C27B0)),
+              Icon(Icons.arrow_forward_ios, size: 20, color: theme.primaryColor),
             ],
           ),
         ),
@@ -54,39 +52,3 @@ class LanguageCard extends StatelessWidget {
   }
 }
 
-class HeaderSection extends StatelessWidget {
-  const HeaderSection({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final double screenHeight = MediaQuery.of(context).size.height;
-    return Container(
-      width: double.infinity,
-      height: screenHeight * 0.4,
-      decoration: const BoxDecoration(
-        color: Color(0xFF9C27B0),
-      ),
-      child: Center(
-        child: Container(
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                spreadRadius: 2,
-                blurRadius: 5,
-              ),
-            ],
-          ),
-          child: const Icon(
-            Icons.dashboard,
-            size: 60,
-            color: Color(0xFF9C27B0),
-          ),
-        ),
-      ),
-    );
-  }
-}

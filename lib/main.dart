@@ -1,22 +1,44 @@
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
+import 'data/app_themes.dart';
 
 void main() {
   runApp(const QuizApp());
 }
 
-class QuizApp extends StatelessWidget {
+class QuizApp extends StatefulWidget {
   const QuizApp({super.key});
+
+  @override
+  State<QuizApp> createState() => _QuizAppState();
+}
+
+class _QuizAppState extends State<QuizApp> {
+  ThemeMode _themeMode = ThemeMode.system;
+
+  void _toggleTheme() {
+    setState(() {
+      _themeMode = _themeMode == ThemeMode.light
+          ? ThemeMode.dark
+          : ThemeMode.light;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Programming Quiz',
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        useMaterial3: true,
+      theme: lightTheme,
+      darkTheme: darkTheme,
+
+      themeMode: _themeMode,
+
+      debugShowCheckedModeBanner: false,
+
+      home: HomeScreen(
+        onThemeToggle: _toggleTheme,
+        currentThemeMode: _themeMode,
       ),
-      home: const HomeScreen(),
     );
   }
 }
