@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../data/quiz_data.dart';
 import '../widgets/language_card.dart';
+import 'quiz_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,8 +9,14 @@ class HomeScreen extends StatelessWidget {
   void _startQuiz(BuildContext context, String language) {
     final questions = quizData[language] ?? [];
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Memulai Kuis $language dengan ${questions.length} soal!')),
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (ctx) => QuizScreen(
+          language: language,
+          questions: questions,
+        ),
+      ),
     );
   }
 
@@ -21,7 +28,6 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             const HeaderSection(),
-
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(

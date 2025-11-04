@@ -25,6 +25,7 @@ class LanguageCard extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 25.0),
           child: Row(
             children: <Widget>[
+              // Logo/Ikon Bahasa
               SizedBox(
                 width: 60,
                 height: 60,
@@ -32,6 +33,7 @@ class LanguageCard extends StatelessWidget {
               ),
               const SizedBox(width: 20),
 
+              // Nama Bahasa
               Text(
                 title,
                 style: const TextStyle(
@@ -42,6 +44,7 @@ class LanguageCard extends StatelessWidget {
               ),
               const Spacer(),
 
+              // Ikon Panah
               const Icon(Icons.arrow_forward_ios, size: 20, color: Color(0xFF9C27B0)),
             ],
           ),
