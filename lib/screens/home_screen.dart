@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({
     required this.onThemeToggle,
     required this.currentThemeMode,
-    super.key,
+    super.key, required String userName,
   });
 
   void _startQuiz(BuildContext context, String language) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
+import 'screens/welcome_screen.dart';
 import 'data/app_themes.dart';
 
 void main() {
@@ -30,12 +30,10 @@ class _QuizAppState extends State<QuizApp> {
       title: 'Programming Quiz',
       theme: lightTheme,
       darkTheme: darkTheme,
-
       themeMode: _themeMode,
-
       debugShowCheckedModeBanner: false,
 
-      home: HomeScreen(
+      home: WelcomeScreen(
         onThemeToggle: _toggleTheme,
         currentThemeMode: _themeMode,
       ),
